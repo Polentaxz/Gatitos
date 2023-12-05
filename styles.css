@@ -1,0 +1,57 @@
+/* Estilos CSS */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f3e7ff; /* Color de fondo violeta claro */
+  color: #4a4a4a; /* Color del texto */
+}
+
+h1 {
+  text-align: center;
+  padding-top: 20px;
+  color: #7b68ee; /* Color violeta medio para el título */
+}
+
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #7b68ee; /* Color violeta medio para el botón */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #5e4ad6; /* Cambio de color al pasar el mouse */
+}
+
+.oculto {
+  display: none;
+}
+
+#pregunta {
+  text-align: center;
+  margin-top: 30px;
+}
+
+#pregunta p {
+  color: #7b68ee; /* Color violeta medio para el texto */
+}
+
+#pregunta button {
+  background-color: #7b68ee; /* Color violeta medio para los botones */
+}
+
+#pregunta button:hover {
+  background-color: #5e4ad6; /* Cambio de color al pasar el mouse */
+}
+
+#pregunta.triste p {
+  color: #ff0000; /* Color rojo para el texto del gato triste */
+}

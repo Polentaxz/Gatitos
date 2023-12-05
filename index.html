@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gatos Aleatorios</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Gatos Aleatorios</h1>
+  <button onclick="mostrarGatos()">Mostrar Gato</button>
+  <div id="pregunta" class="oculto">
+    <p>¿Estás listo para tanta ternura?</p>
+    <button onclick="mostrarGatos()">Sí</button>
+    <button onclick="redirigir()">No</button>
+  </div>
+  <div id="contenido"></div>
+
+  <script>
+    let primeraVez = true;
+
+    function mostrarPregunta() {
+      const preguntaDiv = document.getElementById('pregunta');
+      preguntaDiv.classList.remove('oculto');
+    }
+
+    function mostrarGatos() {
+      const preguntaDiv = document.getElementById('pregunta');
+      preguntaDiv.classList.add('oculto');
+
+      const contenidoDiv = document.getElementById('contenido');
+      contenidoDiv.innerHTML = '';
+
+      if (primeraVez) {
+        mostrarPregunta();
+        primeraVez = false;
+      } else {
+        fetch('https://api.thecatapi.com/v1/images/search')
+          .then(response => response.json())
+          .then(data => {
+            const imageUrl = data[0].url;
+            const img = document.createElement('img');
+            img.src = imageUrl;
+            img.alt = 'Gato Aleatorio';
+            contenidoDiv.appendChild(img);
+          })
+          .catch(error => console.error('Error al obtener el gato', error));
+      }
+    }
+
+    function redirigir() {
+      window.location.href = 'https://ibaillanos.tv';
+    }
+  </script>
+</body>
+</html>
